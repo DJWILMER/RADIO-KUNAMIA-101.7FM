@@ -1,0 +1,393 @@
+﻿<style>
+div[style*="z-index: 9999"],
+div[style*="position: fixed"][style*="bottom: 0px"] {
+    display: none !important;<h1>
+    visibility: hidden !important;
+}
+</style>
+
+<script>
+function removeTiinyHostAd() {
+    let ad = document.querySelector('div[style*="z-index: 9999"][style*="position: fixed"]');
+    if (ad) {
+        ad.remove();
+    }
+}
+
+// Ejecuta la función cada 500ms para asegurarse de que se elimine incluso si se carga después
+setInterval(removeTiinyHostAd, 500);
+
+</script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Kunamia 101.7 FM</title>
+    <link rel="shortcut icon" type="image/x-icon" href=" https://i.ibb.co/bjrs0Y63/cover-logo.png" />
+    <link rel="manifest" href="manifest.json">
+
+<link rel="manifest" href="manifest.json">
+<script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(() => console.log("✅ Service Worker registrado"))
+            .catch(error => console.log("❌ Error en el registro del Service Worker:", error));
+    }
+</script>
+
+    <link rel="icon" type="image/png" href="https://i.ibb.co/bjrs0Y63/cover-logo.png">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: center;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #001a66, #0033cc);
+            background-image: url("https://i.ibb.co/4wG2wSwT/467852473-1273767700415166-768489871234037601-n.jpg");
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            font-size: 18px;
+            padding: 10px;
+        }
+
+        .share-button {
+            font-size: 22px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            animation: pulse 1.5s infinite;
+        }
+
+        .share-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Logo */
+        .logo-container {
+            margin: 20px 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            animation: pulse 1.5s infinite;
+        }
+
+        .logo-container img {
+            width: 90%;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .store-img {
+            animation: pulse 1.5s infinite;
+        }
+
+
+        /* Estado en vivo */
+        .live-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .live-badge {
+            background: red;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-left: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Info de la canción */
+        .song-info {
+            margin-top: 15px;
+        }
+
+        .song-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .song-artist {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Controles de reproducción */
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .control-button {
+            background: white;
+            color: #0033cc;
+            border: none;
+            border-radius: 50%;
+            padding: 18px;
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            animation: pulse 1.5s infinite;
+        }
+
+        .control-button:hover {
+            transform: scale(1.1);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Redes sociales */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            transition: transform 0.2s;
+            animation: pulse 1.5s infinite;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        
+        /* Estilos para time date */
+        .time-date {
+            position: absolute;
+            right: center; 
+            top: 12%; 
+            transform: translateY(-80%); 
+            flex-direction: file; 
+
+        }
+
+        .time{
+         font-family: 'Retosta';
+         font-size: 20px;
+         background: #ff0000;
+         color: #ffffff;
+         border-radius: 0%;
+         border: solid #ffff00;
+         animation: pulse 1.5s infinite;
+      }
+      .date{
+         font-family: 'Arial Black';
+         font-size: 12px;
+         background: #ffff00;
+         color: #0000ff;
+         border: solid #ffff00;
+         animation: pulse 1.5s infinite;
+      }
+    
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes pulse {
+              0% {
+               transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+               }
+               70% {
+                  transform: scale(1.05);
+                  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+                    }
+                 100% {
+                 transform: scale(1);
+              box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <div class="header">
+        <a href=" https://radiokunamia.com/"><img src="playstore.png" width="40" border="4"></a>
+        <span class="share-button" onclick="shareRadio()"><img src="share.png" width="30"></span>
+    </div>
+
+    <!-- Logo de la radio -->
+    <div class="logo-container">
+        <img src="logo.png" alt="Radio Kunamia 101.7 FM">
+    </div>
+<!-- time date -->
+    <div class="time-date">
+ <center>
+        <div class="time" id="clock">00:00:00</div>
+        <div class="date" id="date">01 Enero 2026</div>
+ </center>
+    </div>
+    <!-- Estado en vivo -->
+    <div class="live-status">
+        <span>REPRODUCIENDO</span>
+        <span class="live-badge">EN VIVO</span>
+    </div>
+
+    <!-- Información de la canción -->
+    <div class="song-info">
+        <p class="song-title">RADIO KUNAMIA 101.7 FM</p>
+        <p class="song-artist">Camporredondo Luya Amazonas</p>
+    </div>
+<button id="installBtn" style="display:none; padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+    📲 Instalar Radio Kunamia 101.7 FM
+</button>
+
+<script>
+    let deferredPrompt;
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+        document.getElementById("installBtn").style.display = "block";
+    });
+
+    document.getElementById("installBtn").addEventListener("click", () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                    console.log("✅ Usuario aceptó la instalación");
+                } else {
+                    console.log("❌ Usuario canceló la instalación");
+                }
+                deferredPrompt = null;
+            });
+        }
+    });
+</script>
+
+    <!-- Controles de reproducción -->
+    <div class="player-controls">
+        <button id="playPauseButton" class="control-button"><img src="playpause.png" width="50"></button>
+    </div>
+
+    <!-- Redes sociales -->
+        <div class="social-icons">
+        <a href="https://www.facebook.com/share/15VBGnteF4/"><img src="facebook.png" width="40"></a>
+        <a href="https://radiokunamia.com/"><img src="youtube.png" width="40"></a>
+        <a href="https://api.whatsapp.com/send/?phone=51978390270&text&app_absent=0"><img src="whatsapp.png" width="40"></a>
+        <a href="https://www.tiktok.com/@dionicioradio"><img src="tiktok.png" width="40"></a>
+        <a href="https://radiokunamia.com/"><img src="web.png" width="50"></a>
+
+    <!-- Audio -->
+    <audio id="audioPlayer" src="https://radio.transmite.pe:7007/;"></audio>
+
+    <script>
+        function shareRadio() {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Escucha Radio Kunamia 101.7 🎶",
+                    text: "Sintoniza: Radio Kunamia 101.7 ahora en vivo",
+                    url: window.location.href
+                }).catch(error => console.log("❌ Error al compartir:", error));
+            } else {
+                alert("Tu navegador no soporta la opción de compartir.");
+            }
+        }
+
+        const button = document.getElementById("playPauseButton");
+        const audio = document.getElementById("audioPlayer");
+        let isPlaying = false;
+
+        button.addEventListener("click", function() {
+            if (isPlaying) {
+                audio.pause();
+                button.textContent = "▶️";
+            } else {
+                audio.play();
+                button.textContent = "⏸️";
+            }
+            isPlaying = !isPlaying;
+        });
+            
+    </script>
+  
+  <!-- time date-->
+          <script>
+          // Clock Widget functionality
+      function updateClock() {
+          const now = new Date();
+          
+          // Update time
+          const time = now.toLocaleTimeString('es-ES', { 
+              hour: '2-digit', 
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: true 
+          });
+          document.getElementById('clock').textContent = time;
+          
+          // Update date
+          const date = now.toLocaleDateString('es-ES', { 
+              day: '2-digit',
+              month: 'long',
+              year: 'numeric'
+          });
+          document.getElementById('date').textContent = date;
+      }
+      
+      // Update clock immediately and then every second
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+
+</body>
+</html>
